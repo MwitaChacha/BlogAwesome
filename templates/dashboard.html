@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
+{% block styles %}
+{{super()}}
 
+<link
+    href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito:wght@200&family=Quicksand&family=Roboto&family=Roboto+Slab:wght@300;400&family=Zen+Antique&display=swap"
+    rel="stylesheet">
+{% endblock %}
 {% block content %}
 <div class="container-fluid dashboard-intro">
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
@@ -46,12 +52,12 @@
    
 </div>
 <div class="container text-center">
-<h2>GOOD READS:</h2>
+<h2 class="header">GOOD READS:</h2>
 </div>
 <div class="container ">
     <div class="blog-section">
     {% for p in post %}
-    <h5> {{p.title}}</h5>
+    <h5 class="header"> {{p.title}}</h5>
     <p>{{p.content}}</p>
     <em><p>Written by: {{p.author}}</p></em>
     <form class="form-signin comment-form" method="POST" action="/dashboard">
@@ -60,6 +66,9 @@
         <button class="btn btn-dark comment-button" type="submit">Post</button>
     </form>
     <hr>
+    {% for comment in comments %}
+    <p>{{comment.description}}</p>
+    {% endfor %}
     {% endfor %}
 
     

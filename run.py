@@ -110,8 +110,17 @@ def login():
 def dashboard():
     form = CommentForm()
     post = Post.query.all()
+    comment = Comment.query.all()
+    if form.validate_on_submit():
+        comment = Comment(description=form.description.data)
+        form.description.data = ''
+        
+        
+        
+        db.session.add(comment)
+        db.session.commit()
     
-    return render_template('dashboard.html', name=current_user.username, post=post, form=form)
+    return render_template('dashboard.html', name=current_user.username, post=post, form=form, comment=comment)
 
 @app.route('/success')
 def success():

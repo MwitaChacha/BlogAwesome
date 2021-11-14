@@ -1,11 +1,18 @@
 {% extends "base.html" %}
+{% block styles %}
+{{super()}}
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito:wght@200&family=Quicksand&family=Roboto&family=Roboto+Slab:wght@300;400&family=Zen+Antique&display=swap"
+    rel="stylesheet">
+{% endblock %}
 {% block content %}
 <div class="container-fluid success">
     <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-6 text-center">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">USER PROFILE</h5>
+                    <h5 class="card-title header">USER PROFILE</h5>
                     <p class="card-text">Name: {{ name }}</p>
                     <p class="card-text">{{ email }}</p>
                     <a href="{{url_for('dashboard')}}" class="btn btn-dark">Home</a>

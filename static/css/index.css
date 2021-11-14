@@ -1,5 +1,12 @@
-h1, h2, h3, h4, h5, h6 {
-    font-family:'Times New Roman', Times, serif
+.header {
+    font-family: 'Alegreya';
+    font-weight: bold;
+   
+}
+
+p, a {
+    font-family: 'Nunito';
+    font-weight: bolder;
 }
 
 .intro-pic {
@@ -18,9 +25,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn {
-    color: #678983;
     width: 30%;
     margin: 1%;
+    font-family: 'Nunito';
 }
 
 .signup-pic {
