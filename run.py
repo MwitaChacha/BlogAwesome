@@ -2,16 +2,19 @@ from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
 from wtforms.validators import InputRequired, Email, Length
 from wtforms import StringField, PasswordField, BooleanField
+from flask_wtf import FlaskForm
 from wtforms.widgets import TextArea
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'This_is_my_secret'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:6775@localhost/sunday'
 Bootstrap(app)
-
+db = SQLAlchemy(app)
 # MODELS
-class User(UserMixin, db.Model):
+class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(15),unique=True)

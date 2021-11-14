@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<div class="container-fluid login-section">
+    <div class="row">
+        <div class='col-lg-4 col-md-6 col-sm-6'>
+            <form class="form-signin login-form" method="POST" action="/login">
+                <h3 class="form-signin-heading">Login</h3>
+                {{ form.hidden_tag() }}
+                {{ wtf.form_field(form.username) }}
+                {{ wtf.form_field(form.password) }}
+                <button class="btn btn-lg btn-dark btn-block" type="submit">Login</button>
+            </form>
+        </div>
+        <div class='col-lg-8 col-md-6 col-sm-6'>
+            <img class="login-pic"
+                src="https://images.pexels.com/photos/783737/pexels-photo-783737.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="">
+        </div>
+    </div>
+</div>
+
+{% endblock %}
