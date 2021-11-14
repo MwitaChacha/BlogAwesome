@@ -8,7 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
-
+from flask_migrate import Migrate
 
 
 app = Flask(__name__)
@@ -17,6 +17,7 @@ app.config['SECRET_KEY'] = 'This_is_my_secret'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:6775@localhost/sunday'
 Bootstrap(app)
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
@@ -120,7 +121,7 @@ def dashboard():
         db.session.add(comment)
         db.session.commit()
     
-    return render_template('dashboard.html', name=current_user.username, post=post, form=form, comment=comment)
+    return render_template('dashboard.html', name=current_user.username, post=post, form=form, description=form.description.data)
 
 @app.route('/success')
 def success():

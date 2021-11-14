@@ -23,7 +23,7 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="container">
         <div class="row text-center intro-display">
             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -49,30 +49,32 @@
             </div>
         </div>
     </div>
-   
+
 </div>
 <div class="container text-center">
-<h2 class="header">GOOD READS:</h2>
+    <h2 class="header">GOOD READS:</h2>
 </div>
 <div class="container ">
     <div class="blog-section">
-    {% for p in post %}
-    <h5 class="header"> {{p.title}}</h5>
-    <p>{{p.content}}</p>
-    <em><p>Written by: {{p.author}}</p></em>
-    <form class="form-signin comment-form" method="POST" action="/dashboard">
-        {{ form.hidden_tag() }}
-        {{ wtf.form_field(form.description) }}
-        <button class="btn btn-dark comment-button" type="submit">Post</button>
-    </form>
-    <hr>
-    {% for comment in comments %}
-    <p>{{comment.description}}</p>
-    {% endfor %}
-    {% endfor %}
+        {% for p in post %}
+        <h5 class="header"> {{p.title}}</h5>
+        <p>{{p.content}}</p>
+        <em>
+            <p>Written by: {{p.author}}</p>
+        </em>
+        <form class="form-signin comment-form" method="POST" action="/dashboard">
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.description) }}
+            <button class="btn btn-dark comment-button" type="submit">Post</button>
+        </form>
+        <hr>
+        {% for comment in comments %}
+        <p>{{comment.description}}</p>
+        {% endfor %}
+        {% endfor %}
 
-    
-</div>
+
+    </div>
 </div>
 
 {% endblock %}
