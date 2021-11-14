@@ -75,6 +75,12 @@
 
 
     </div>
+    <div>
+        {% for q in quotes %}
+        <p>{{ q.author }}</p>
+        <p>{{ q.quote }}</p>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
