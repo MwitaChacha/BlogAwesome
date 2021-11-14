@@ -1,0 +1,148 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family:'Times New Roman', Times, serif
+}
+
+.intro-pic {
+    width:500px;
+    height:500px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-right: 32%;
+}
+
+.intro-section {
+    padding: 5%;
+    background: linear-gradient(90deg, white 50%, #A45D5D 50%);
+    height: 100vh;
+    
+}
+
+.btn {
+    color: #678983;
+    width: 30%;
+    margin: 1%;
+}
+
+.signup-pic {
+    width:500px;
+    height:500px;
+    object-fit: cover;
+    border-radius:50%;
+    margin-right: 32%;
+}
+.form-signin {
+    width: 250px;
+    padding-left: 10%;
+}
+
+.signup-section {
+    padding: 8%;
+    background: linear-gradient(90deg, white 50%, #152D35 50%);
+    height: 100vh;
+}
+
+.login-section {
+    padding: 8%;
+    background: linear-gradient(90deg, white 50%, #444941 50%);
+    height: 100vh; 
+}
+
+.login-form {
+    width: 250px;
+    padding-left: 10%;
+}
+
+.login-pic {
+    width:500px;
+    height:500px;
+    object-fit: cover;
+    border-radius:50%;
+    margin-right: 32%;
+} 
+
+.success {
+    padding: 8%;
+    background: linear-gradient(90deg, white 50%, #444941 50%);
+    height: 100vh; 
+}
+
+.success-pic {
+    width:500px;
+    height:500px;
+    object-fit: cover;
+    border-radius:50%;
+    margin-right: 32%;
+}
+
+.card {
+    margin-top: 30%;
+    margin-left: 10%;
+}
+
+.dashboard-intro {
+    background: linear-gradient(180deg, #628395 50%, white 50%);
+    height: 100vh; 
+}
+
+.dashboard-pic {
+    width:250px;
+    height:250px;
+    object-fit: cover;
+    border-radius:50%;
+}
+
+.intro-display {
+    margin-top: 10%;
+    padding: 5%;
+}
+
+.nav-link {
+    padding: 0 2% 0 2%;
+}
+
+.text-blog {
+    padding: 5%;
+}
+
+.blog-btn {
+    width: 50%;
+}
+
+.post-pic {
+    width:500px;
+    height:500px;
+    object-fit: cover;
+    border-radius:50%;
+}
+
+.post-blog {
+    padding: 8%;
+    background: linear-gradient(90deg, white 50%, #444941 50%);
+    height: 100vh; 
+}
+.blog-form {
+    width: 90%;
+}
+
+.home-btn {
+    width: 5%;
+    margin-left: 2%;
+}
+
+.blog-section {
+    width: 700px;
+    margin: 4% auto;
+    text-align: justify;
+    padding: 5%;
+    
+}
+
+.comment-form {
+    width: 500px;
+    font-size: smaller;
+    
+}
+.comment-button {
+    width: 20%;
+    font-size: 0.5rem;
+}
