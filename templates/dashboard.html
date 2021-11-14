@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<div class="container-fluid dashboard-intro">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand text-white" href="#">WELCOME, {{ name }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto p-2">
+                <a class="nav-item nav-link active text-white" href="#">HOME <span class="sr-only">(current)</span></a>
+                <a class="text-white nav-item nav-link" href="{{url_for('profile')}}">PROFILE</a>
+                <a class="text-white nav-item nav-link" href="{{url_for('logout')}}">LOGOUT</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row text-center intro-display">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <img class="dashboard-pic"
+                    src="https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="">
+                <p class="text-blog">Travel</p>
+                <a href="{{url_for('blog')}}"><button class="btn blog-btn btn-dark">Write a Blog</button></a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <img class="dashboard-pic"
+                    src="https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="">
+                <p class="text-blog">Fashion</p>
+                <a href="{{url_for('blog')}}"><button class="btn blog-btn btn-dark">Write a Blog</button></a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <img class="dashboard-pic"
+                    src="https://images.pexels.com/photos/3156482/pexels-photo-3156482.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="">
+                <p class="text-blog">Motorsport</p>
+                <a href="{{url_for('blog')}}"><button class="btn blog-btn btn-dark">Write a Blog</button></a>
+            </div>
+        </div>
+    </div>
+   
+</div>
+<div class="container text-center">
+<h2>GOOD READS:</h2>
+</div>
+<div class="container ">
+    <div class="blog-section">
+    {% for p in post %}
+    <h5> {{p.title}}</h5>
+    <p>{{p.content}}</p>
+    <em><p>Written by: {{p.author}}</p></em>
+    <form class="form-signin comment-form" method="POST" action="/dashboard">
+        {{ form.hidden_tag() }}
+        {{ wtf.form_field(form.description) }}
+        <button class="btn btn-dark comment-button" type="submit">Post</button>
+    </form>
+    <hr>
+    {% endfor %}
+
+    
+</div>
+</div>
+
+{% endblock %}
