@@ -1,11 +1,21 @@
 from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
+from wtforms.validators import InputRequired, Email, Length
+from wtforms import StringField, PasswordField, BooleanField
+from wtforms.widgets import TextArea
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'This_is_my_secret'
 
 Bootstrap(app)
+class RegisterForm(FlaskForm):
+    email = StringField('Email', validators=[InputRequired(), Email(message='Invalid email')])
+    username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('Password', validators=[InputRequired()])
+
+
+
 
 @app.route('/')
 def index():
