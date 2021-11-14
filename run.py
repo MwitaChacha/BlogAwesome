@@ -20,6 +20,11 @@ db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))  
+
 # MODELS
 class User(db.Model):
     __tablename__ = 'users'
@@ -73,33 +78,75 @@ class CommentForm(FlaskForm):
 def index():
     return render_template('index.html')
 
-@app.route('/signup')
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    return render_template('signup.html')
+    form = RegisterForm()
+    if form.validate_on_submit():
+        hashed_password = generate_password_hash(form.password.data, method='sha256')
+       
+        new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+    
+        db.session.add(new_user)
+        db.session.commit()
+        return redirect('/success')
+    return render_template('signup.html', form=form)
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=form.username.data).first()
+        if user:
+            if check_password_hash(user.password, form.password.data):
+                login_user(user)
+                return redirect(url_for('dashboard'))
+         
+        return redirect('failure')
+    return render_template('login.html', form=form)
+
+@app.route('/dashboard', methods=['GET', 'POST'])
+@login_required
+
+def dashboard():
+    form = CommentForm()
+    post = Post.query.all()
+    
+    return render_template('dashboard.html', name=current_user.username, post=post, form=form)
 
 @app.route('/success')
 def success():
+   
     return render_template('success.html')
-
-@app.route('/failure')
-def failure():
-    return render_template('failure.html')
-
-@app.route('/dashboard')
-def dashboard():
-    return render_template('dashboard.html')
-
-@app.route('/blog')
-def blog():
-    return render_template('blog.html')
 
 @app.route('/profile')
 def profile():
-    return render_template('profile.html')
+   
+    return render_template('profile.html', name=current_user.username, email=current_user.email )
+
+@app.route('/failure')
+def failure():
+    
+    return render_template('failure.html')
+
+@app.route('/blog', methods=['GET', 'POST'])
+def blog():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(author=form.author.data, title=form.title.data, content=form.content.data)
+        form.author.data = ''
+        form.title.data = ''
+        form.content.data = ''
+        
+        
+        db.session.add(post)
+        db.session.commit()
+    return render_template('blog.html', form=form)
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
