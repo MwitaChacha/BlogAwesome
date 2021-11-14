@@ -19,7 +19,11 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[InputRequired()])
     remember = BooleanField('Remember me')
 
-
+class PostForm(FlaskForm):
+    author = StringField('Author', validators=[InputRequired()])
+    title = StringField("Title", validators=[InputRequired()])
+    content = StringField("Blog", validators=[InputRequired()], widget=TextArea())
+    
 
 
 @app.route('/')
