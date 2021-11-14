@@ -7,8 +7,23 @@ from wtforms.widgets import TextArea
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'This_is_my_secret'
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:6775@localhost/sunday'
 Bootstrap(app)
+
+# MODELS
+class User(UserMixin, db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(15),unique=True)
+    email = db.Column(db.String(50), unique=True)
+    password = db.Column(db.String())
+    # posts = db.relationship('Post', backref='poster')
+    # comments = db.relationship('Comment', backref='commentor')
+    
+
+
+
+# FORMS
 class RegisterForm(FlaskForm):
     email = StringField('Email', validators=[InputRequired(), Email(message='Invalid email')])
     username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15)])
@@ -27,7 +42,7 @@ class PostForm(FlaskForm):
 class CommentForm(FlaskForm):
     description = StringField("Comment") 
     
-
+# VIEWS
 
 @app.route('/')
 def index():
