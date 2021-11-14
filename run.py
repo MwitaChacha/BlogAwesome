@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for
-
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 
@@ -28,7 +28,7 @@ def failure():
     return render_template('failure.html')
 
 @app.route('/dashboard')
-def index():
+def dashboard():
     return render_template('dashboard.html')
 
 @app.route('/blog')
@@ -40,3 +40,5 @@ def profile():
     return render_template('profile.html')
 
 
+if __name__ == '__main__':
+    app.run(debug=True)
