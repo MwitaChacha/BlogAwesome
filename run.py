@@ -28,7 +28,13 @@ class Post(db.Model):
     content = db.Column(db.Text)
     date_posted = db.Column(db.DateTime)
     # poster_id = db.Column(db.Integer, db.ForeignKey(user.id))
-    
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer, primary_key=True)
+    description = db.Column(db.String(255))
+    # commentor_id = db.Column(db.Integer, db.ForeignKey(user.id))
+     
 
 
 
