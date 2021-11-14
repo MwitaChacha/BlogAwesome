@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<div class="container-fluid post-blog">
+    <a href="{{url_for('dashboard')}}"><button class="btn home-btn btn-outline-dark" type="">Home</button></a>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            
+            <form class="form-signin blog-form" method="POST" action="/blog">
+                <h3 class="form-signin-heading">Create Your Blog Here</h3>
+                {{ form.hidden_tag() }}
+                {{ wtf.form_field(form.author) }}
+                {{ wtf.form_field(form.title) }}
+                {{ wtf.form_field(form.content) }}
+                <button class="btn btn-lg btn-dark btn-block" type="submit">Submit</button>
+                
+            </form>
+            
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <img class="post-pic" src="https://images.pexels.com/photos/163084/typewriter-vintage-old-vintage-typewriter-163084.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="">
+        </div>
+    </div>
+</div>
+{% endblock %}
