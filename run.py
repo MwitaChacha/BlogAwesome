@@ -19,6 +19,15 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String())
     # posts = db.relationship('Post', backref='poster')
     # comments = db.relationship('Comment', backref='commentor')
+
+class Post(db.Model):
+    __tablename__ = 'posts'
+    id = db.Column(db.Integer, primary_key=True)
+    author = db.Column(db.String)
+    title = db.Column(db.String(255))
+    content = db.Column(db.Text)
+    date_posted = db.Column(db.DateTime)
+    # poster_id = db.Column(db.Integer, db.ForeignKey(user.id))
     
 
 
