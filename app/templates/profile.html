@@ -12,17 +12,19 @@
         <div class="col-lg-4 col-md-6 col-sm-6 text-center">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title header">CONGRATULATIONS {{ name }}!</h5>
-                    <p class="card-text">You have just created a Blog Awesome Account!</p>
-                    <a href="{{url_for('login')}}" class="btn btn-dark">Login</a>
+                    <h5 class="card-title header">USER PROFILE</h5>
+                    <p class="card-text">Name: {{ name }}</p>
+                    <p class="card-text">{{ email }}</p>
+                    <a href="{{url_for('main.dashboard')}}" class="btn btn-dark">Home</a>
                 </div>
             </div>
         </div>
         <div class="col-lg-8 col-md-6 col-sm-6">
-            <img class="success-pic" src="https://images.pexels.com/photos/4049870/pexels-photo-4049870.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            <img class="success-pic" src="https://images.pexels.com/photos/768474/pexels-photo-768474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                 alt="">
         </div>
     </div>
 
 </div>
+
 {% endblock %}

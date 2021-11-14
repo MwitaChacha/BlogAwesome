@@ -18,8 +18,8 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto p-2">
                 <a class="nav-item nav-link active text-white" href="#">HOME <span class="sr-only">(current)</span></a>
-                <a class="text-white nav-item nav-link" href="{{url_for('profile')}}">PROFILE</a>
-                <a class="text-white nav-item nav-link" href="{{url_for('logout')}}">LOGOUT</a>
+                <a class="text-white nav-item nav-link" href="{{url_for('main.profile')}}">PROFILE</a>
+                <a class="text-white nav-item nav-link" href="{{url_for('main.logout')}}">LOGOUT</a>
             </div>
         </div>
     </nav>
@@ -31,21 +31,21 @@
                     src="https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt="">
                 <p class="text-blog">Travel</p>
-                <a href="{{url_for('blog')}}"><button class="btn blog-btn btn-dark">Write a Blog</button></a>
+                <a href="{{url_for('main.blog')}}"><button class="btn blog-btn btn-dark">Write a Blog</button></a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <img class="dashboard-pic"
                     src="https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                     alt="">
                 <p class="text-blog">Fashion</p>
-                <a href="{{url_for('blog')}}"><button class="btn blog-btn btn-dark">Write a Blog</button></a>
+                <a href="{{url_for('main.blog')}}"><button class="btn blog-btn btn-dark">Write a Blog</button></a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <img class="dashboard-pic"
                     src="https://images.pexels.com/photos/3156482/pexels-photo-3156482.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt="">
                 <p class="text-blog">Motorsport</p>
-                <a href="{{url_for('blog')}}"><button class="btn blog-btn btn-dark">Write a Blog</button></a>
+                <a href="{{url_for('main.blog')}}"><button class="btn blog-btn btn-dark">Write a Blog</button></a>
             </div>
         </div>
     </div>

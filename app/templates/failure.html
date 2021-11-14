@@ -12,19 +12,17 @@
         <div class="col-lg-4 col-md-6 col-sm-6 text-center">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title header">USER PROFILE</h5>
-                    <p class="card-text">Name: {{ name }}</p>
-                    <p class="card-text">{{ email }}</p>
-                    <a href="{{url_for('dashboard')}}" class="btn btn-dark">Home</a>
+                    <h5 class="card-title header">SORRY</h5>
+                    <p class="card-text">Invalid Username or Password.</p>
+                    <a href="{{url_for('main.login')}}" class="btn btn-dark">Retry</a>
                 </div>
             </div>
         </div>
         <div class="col-lg-8 col-md-6 col-sm-6">
-            <img class="success-pic" src="https://images.pexels.com/photos/768474/pexels-photo-768474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            <img class="success-pic" src="https://images.pexels.com/photos/3178818/pexels-photo-3178818.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                 alt="">
         </div>
     </div>
 
 </div>
-
 {% endblock %}
