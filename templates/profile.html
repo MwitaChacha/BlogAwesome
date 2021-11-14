@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid success">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 text-center">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">USER PROFILE</h5>
+                    <p class="card-text">Name: {{ name }}</p>
+                    <p class="card-text">{{ email }}</p>
+                    <a href="{{url_for('dashboard')}}" class="btn btn-dark">Home</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-6 col-sm-6">
+            <img class="success-pic" src="https://images.pexels.com/photos/768474/pexels-photo-768474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                alt="">
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
